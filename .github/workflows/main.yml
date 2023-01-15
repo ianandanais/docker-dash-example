@@ -75,3 +75,4 @@ jobs:
         flags: --port=8080 --allow-unauthenticated
     - name: Clean up old images
       run: gcloud container images list-tags ${{ env.IMAGE_NAME }} --filter='-tags:*' --format="get(digest)" --limit=10 > tags && while read p; do gcloud container images delete "${{ env.IMAGE_NAME }}@$p" --quiet; done < tags
+     
